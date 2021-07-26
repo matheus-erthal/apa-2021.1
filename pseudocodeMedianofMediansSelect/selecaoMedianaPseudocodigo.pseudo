@@ -1,0 +1,56 @@
+Function Selecao(array, baixo, alto, k)
+Begin
+    /* The SELECT algorithm determines the ith smallest of an input array of n>1
+distinct elements by executing the following steps. (If n = 1, then SELECT merely
+returns its only input value as the ith smallest.) */
+    If baixo == alto
+        return array[baixo];
+    Endif
+    
+    /* Divide the n elements of the input array into [n/5] groups of 5 elements each
+and at most one group made up of the remaining n mod 5 elements. */
+    tamanhoArray ← alto-baixo+1;
+    numeroDeMedianas ← (tamanhoArray+4)/5;
+    medianas[numeroDeMedianas];
+    i ← 0
+    
+    /* Find the median of each of the [n/5] groups by first insertion-sorting the elements of each group (of which there are at most 5) and then picking the median
+from the sorted list of group elements. */
+    While (i < tamanhoArray/5)
+        medianas[i] ← EncontrarMediana(array+baixo+i*5, 5);
+        i ← i + 1;
+    Endwhile
+    
+    If (i*5 < tamanhoArray)
+        medianas[i] ← EncontrarMediana(array+baixo+i*5, tamanhoArray%5);
+    Endif
+    
+    /* Use SELECT recursively to find the median x of the [n/5] medians found in
+step 2. (If there are an even number of medians, then by our convention, x is
+the lower median.) */
+    medianaDasMedianas;
+    If(i == 1)
+        medianaDasMedianas ← medianas[0];
+    Else
+        medianaDasMedianas ← Selecao(medianas, 0, i-1, i/2);
+    Endif
+
+    /* Partition the input array around the median-of-medians x using the modified
+version of PARTITION. Let k be one more than the number of elements on the
+low side of the partition, so that x is the kth smallest element and there are n-k
+elements on the high side of the partition. */
+    indicePivo ← FazParticao(array, baixo, alto, medianaDasMedianas);
+
+    /* If i = k, then return x. Otherwise, use SELECT recursively to find the ith
+smallest element on the low side if i<k, or the (i-k) smallest element on
+the high side if i>k.*/
+    If(indicePivo-baixo == k-1)
+        return array[indicePivo];
+    Endif
+    
+    If(indicePivo-baixo > k-1)
+        return Selecao(array, baixo, indicePivo-1, k);
+    Endif
+
+    return Selecao(array, indicePivo+1, alto, k-indicePivo+baixo-1);
+End

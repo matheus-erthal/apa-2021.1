@@ -1,0 +1,29 @@
+/* Partition the input array around the median-of-medians x using the modified
+version of PARTITION. Let k be one more than the number of elements on the
+low side of the partition, so that x is the kth smallest element and there are n-k
+elements on the high side of the partition. */
+Function FazParticao(array, baixo, alto, x){
+Begin
+    i, j;
+    i ← baixo;
+    While(i < alto)
+        If (array[i] == x)
+            Troca(array[i], array[alto]);
+            break;
+        Endif
+        i ← i + 1;
+    Endwhile
+
+    i ← baixo;
+    j ← baixo;
+    While(j <= alto -1)
+        If(array[j] <= x)
+            Troca(array[i], array[j]);
+            i ← i + 1;
+        Endif
+        j ← j + 1;
+    Endwhile
+
+    Troca(array[i], array[alto]);
+    return i;
+End

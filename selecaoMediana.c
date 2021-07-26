@@ -88,7 +88,7 @@ int selecao(int array[], int baixo, int alto, int k){
     //particacao
     int indicePivo = fazParticao(array, baixo, alto, medianaDasMedianas);
 
-    //
+    //retorna menor k-esimo ou faz recursao em parte do array
     if(indicePivo-baixo == k-1) return array[indicePivo];
     
     if(indicePivo-baixo > k-1) return selecao(array, baixo, indicePivo-1, k);
@@ -98,14 +98,12 @@ int selecao(int array[], int baixo, int alto, int k){
 
 }
 
-
-/* Driver program to test insertion sort */
 int main()
 {
-	int arr[] = {12, 3, 5, 7, 4, 19, 26, 40, 35, 10, 23, 18, 50};
-    int n = sizeof(arr)/sizeof(arr[0]), k = 7;
+	int array[] = {12, 3, 5, 7, 4, 19, 26, 40, 35, 10, 23, 18, 50};
+    int tamanhoArray = sizeof(array)/sizeof(array[0]), k = 7;
 
-    printf("O k-menor é: %d \n", selecao(arr, 0, n-1, k));
+    printf("O k-menor é: %d \n", selecao(array, 0, tamanhoArray-1, k));
 
 	return 0;
 }
