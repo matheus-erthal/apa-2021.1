@@ -3,6 +3,45 @@ Arthur de Oliveira Paiva
 
 Matheus Erthal Amâncio da Silva
 
+# Seleção Ingênua
+
+## Código
+
+O código da seleção ingênua se encontra no arquivo [selecaoIngenua.c](/selecaoIngenua.c)
+
+Para executar o código em um sistema Linux basta executar os seguintes comandos dentro da pasta que contém o arquivo:
+```
+gcc selecaoIngenua.c -o selecaoIngenua
+./selecaoIngenua
+```
+## Experimentos
+
+Dentro do arquivo de código, há comentários com o que se foi usado para realizar os experimentos
+
+### MUDAR A ORDEM DE GRANDEZA DOS NÚMEROS (FIXA K E FIXA N)
+
+Basta copiar e colar um dos vetores no comentário para a váriavel
+```
+int array[] =
+```
+dentro da função main()
+
+### FIXA K VARIA N
+
+Basta copiar e colar um dos vetores no comentário para a váriavel
+```
+int array[] =
+```
+dentro da função main()
+
+### FIXA N VARIA K
+
+Basta substituir a função
+```
+int main()
+```
+do código pela a do comentário.
+
 # Seleção Mediana das Medianas
 ## Pseudocódigo
 
@@ -29,3 +68,49 @@ Os arquivo de dados usados para gerar os gráficos no gnuplot se encontram na pa
 - Os dados do gráfico fixaNvariaK.png se encontram no arquivo [fixaNvariaK.dat](/dataFilesMedianOfMediansSelect/fixaNvariaK.dat)
 - Os dados do gráfico ordemDeGrandeza.png se encontram no arquivo [ordemDeGrandeza.dat](/dataFilesMedianOfMediansSelect/ordemDeGrandeza.dat)
 - Os dados do gráfico variaTamanhoGrupo.png se encontram no arquivo [variaTamanhoGrupo.dat](/dataFilesMedianOfMediansSelect/variaTamanhoGrupo.dat)
+
+## Código
+
+O código da seleção mediana das medianas se encontra no arquivo [selecaoMediana.c](/selecaoMediana.c)
+
+Para executar o código em um sistema Linux basta executar os seguintes comandos dentro da pasta que contém o arquivo:
+```
+gcc selecaoMediana.c -o selecaoMediana
+./selecaoMediana
+```
+
+## Experimentos
+
+Dentro do arquivo de código, há comentários com o que se foi usado para realizar os experimentos
+
+### VARIAR TAMANHO DOS GRUPOS (FIXA K E N)
+
+Basta trocar a variavel abaixo pelo número desejado
+
+```
+int tamanhoDoGrupo = 5;
+```
+
+### MUDAR A ORDEM DE GRANDEZA DOS NÚMEROS (FIXA K E FIXA N)
+
+Basta copiar e colar um dos vetores no comentário para a váriavel
+```
+int array[] =
+```
+dentro da função main()
+
+### FIXA K VARIA N
+
+Basta copiar e colar um dos vetores no comentário para a váriavel
+```
+int array[] =
+```
+dentro da função main()
+
+### FIXA N VARIA K
+
+Basta substituir a função
+```
+int main()
+```
+do código pela a do comentário.
