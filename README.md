@@ -5,6 +5,21 @@ Matheus Erthal Amâncio da Silva
 
 # Seleção Ingênua
 
+## Gráficos
+
+Os gráficos com os resultados dos experimentos se encontram na pasta [chartsNaiveSelect](/chartsNaiveSelect)
+- No primeiro gráfico o "K"(k-ésimo menor elemento que se deseja encontrar) foi fixado e o "N"(tamanho do vetor) foi variado entre 100 e 1000 crescendo de 100 em 100 a cada experimento(100, 200, 300...).
+O arquivo pode ser encontrado aqui: [fixaKvariaN.png](/chartsNaiveSelect/fixaKvariaN.png)
+- No segundo gráfico o "N"(tamanho do vetor) foi fixado e o "K"(k-ésimo menor elemento que se deseja encontrar) foi variado entre 10 e 100 cresncendo de 10 em 10 a cada experimento(10, 20, 30...).
+O arquivo pode ser encontrado aqui: [fixaNvariaK.png](/chartsNaiveSelect/fixaNvariaK.png)
+
+## Arquivos de dados
+
+Os arquivo de dados usados para gerar os gráficos no gnuplot se encontram na pasta [dataFilesNaiveSelect](/dataFilesNaiveSelect)
+- Os dados do gráfico fixaKvariaN.png se encontram no arquivo [fixaKvariaN.dat](/dataFilesNaiveSelect/fixaKvariaN.dat)
+- Os dados do gráfico fixaNvariaK.png se encontram no arquivo [fixaNvariaK.dat](/dataFilesNaiveSelect/fixaNvariaK.dat)
+- Os dados do experimento que se altera a ordem de grandeza dos números se encontram no arquivo [ordemDeGrandeza.dat](/dataFilesNaiveSelect/ordemDeGrandeza.dat)
+
 ## Código
 
 O código da seleção ingênua se encontra no arquivo [selecaoIngenua.c](/selecaoIngenua.c)
@@ -43,7 +58,7 @@ int main()
 do código pela a do comentário.
 
 # Seleção Mediana das Medianas
-## Pseudocódigo
+## Pseudocódigos
 
 Os pseudocódigos se encontram na pasta [pseudocodeMedianofMediansSelect](/pseudocodeMedianofMediansSelect)
 - O pseudocódigo da seleção é o arquivo [selecaoMedianaPseudocodigo.pseudo](/pseudocodeMedianofMediansSelect/selecaoMedianaPseudocodigo.pseudo)
@@ -55,19 +70,19 @@ Os gráficos com os resultados dos experimentos se encontram na pasta [chartsMed
 - No primeiro gráfico o "K"(k-ésimo menor elemento que se deseja encontrar) foi fixado e o "N"(tamanho do vetor) foi variado entre 100 e 1000 crescendo de 100 em 100 a cada experimento(100, 200, 300...).
 O arquivo pode ser encontrado aqui: [fixaKvariaN.png](/chartsMedianOfMediansSelect/fixaKvariaN.png)
 - No segundo gráfico o "N"(tamanho do vetor) foi fixado e o "K"(k-ésimo menor elemento que se deseja encontrar) foi variado entre 10 e 100 cresncendo de 10 em 10 a cada experimento(10, 20, 30...).
-O arquivo pode ser encontrado aqui: [fixaNvariaK.png](/chartsMedianOfMediansSelect/fixaNvariaK.png)
+O arquivo pode ser encontrado aqui: [fixaNvariaK_atualizado.png](/chartsMedianOfMediansSelect/fixaNvariaK_atualizado.png)
 - No terceiro gráfico tanto "K"(k-ésimo menor elemento que se deseja encontrar) e o "N"(tamanho do vetor) foram fixados, variando a grandeza dos números que compõe o vetor de 1\~400 até 1000000\~10000000 a cada experimento.
 O arquivo pode ser encontrado aqui: [variaOrdemGrandezaNumerosVetor.png](/chartsMedianOfMediansSelect/variaOrdemGrandezaNumerosVetor.png)
 - No terceiro gráfico tanto "K"(k-ésimo menor elemento que se deseja encontrar) e o "N"(tamanho do vetor) foram fixados, variando o tamanho do grupo que o vetor foi separado de 7 até 25 aumentando de 2 em 2 a cada experimento(7, 5, 9...).
-O arquivo pode ser encontrado aqui: [variaTamanhoGrupo.png](/chartsMedianOfMediansSelect/variaTamanhoGrupo.png)
+O arquivo pode ser encontrado aqui: [variaTamanhoGrupo_atualizado.png](/chartsMedianOfMediansSelect/variaTamanhoGrupo_atualizado.png)
 
-## Arquivo de dados
+## Arquivos de dados
 
 Os arquivo de dados usados para gerar os gráficos no gnuplot se encontram na pasta [dataFilesMedianOfMediansSelect](/dataFilesMedianOfMediansSelect)
 - Os dados do gráfico fixaKvariaN.png se encontram no arquivo [fixaKvariaN.dat](/dataFilesMedianOfMediansSelect/fixaKvariaN.dat)
-- Os dados do gráfico fixaNvariaK.png se encontram no arquivo [fixaNvariaK.dat](/dataFilesMedianOfMediansSelect/fixaNvariaK.dat)
+- Os dados do gráfico fixaNvariaK_atualizado.png se encontram no arquivo [fixaNvariaK_atualizado.dat](/dataFilesMedianOfMediansSelect/fixaNvariaK_atualizado.dat)
 - Os dados do gráfico ordemDeGrandeza.png se encontram no arquivo [ordemDeGrandeza.dat](/dataFilesMedianOfMediansSelect/ordemDeGrandeza.dat)
-- Os dados do gráfico variaTamanhoGrupo.png se encontram no arquivo [variaTamanhoGrupo.dat](/dataFilesMedianOfMediansSelect/variaTamanhoGrupo.dat)
+- Os dados do gráfico variaTamanhoGrupo_atualizado.png se encontram no arquivo [variaTamanhoGrupo_atualizado.dat](/dataFilesMedianOfMediansSelect/variaTamanhoGrupo_atualizado.dat)
 
 ## Código
 
