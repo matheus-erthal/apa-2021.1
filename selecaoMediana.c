@@ -3,6 +3,8 @@
 #include <math.h>
 #include <sys/resource.h>
 
+#define ARR_SIZE 10000
+
 void Tempo_CPU_Sistema(double *seg_CPU_total, double *seg_sistema_total)
 {
   long seg_CPU, seg_sistema, mseg_CPU, mseg_sistema;
@@ -76,12 +78,11 @@ int fazParticao(int array[], int baixo, int alto, int x){
 
 }
 
-int selecao(int array[], int baixo, int alto, int k){
+int selecao(int array[], int baixo, int alto, int k, int tamanhoDoGrupo){
 
     if(baixo == alto) return array[baixo]; // n == 1
 
     int tamanhoArray = alto-baixo+1;
-    int tamanhoDoGrupo = 5;
     //array de medianas
     int numeroDeMedianas = floor((tamanhoArray+tamanhoDoGrupo-1)/tamanhoDoGrupo);
     int *medianas = (int*) malloc(numeroDeMedianas * sizeof(int));
@@ -101,7 +102,7 @@ int selecao(int array[], int baixo, int alto, int k){
     if(i == 1){
         medianaDasMedianas = medianas[0];
     } else {
-        medianaDasMedianas = selecao(medianas, 0, i-1, i/2);
+        medianaDasMedianas = selecao(medianas, 0, i-1, i/2, tamanhoDoGrupo);
     }
 
     free(medianas);
@@ -112,32 +113,49 @@ int selecao(int array[], int baixo, int alto, int k){
     //retorna menor k-esimo ou faz recursao em parte do array
     if(indicePivo-baixo == k-1) return array[indicePivo];
     
-    if(indicePivo-baixo > k-1) return selecao(array, baixo, indicePivo-1, k);
+    if(indicePivo-baixo > k-1) return selecao(array, baixo, indicePivo-1, k, tamanhoDoGrupo);
 
-    return selecao(array, indicePivo+1, alto, k-indicePivo+baixo-1);
+    return selecao(array, indicePivo+1, alto, k-indicePivo+baixo-1, tamanhoDoGrupo);
 
 
 }
 
 int main()
 {
-	int array[] = {159, 376, 208, 384, 213, 85, 278, 1, 364, 389, 155, 91, 234, 279, 312, 356, 260, 347, 77, 273, 231, 170, 360, 48, 41, 386, 59, 345, 209, 145, 387, 282, 223, 16, 374, 132, 163, 228, 314, 230, 337, 21, 338, 261, 112, 334, 196, 56, 325, 6, 22, 346, 371, 73, 270, 80, 108, 370, 233, 18, 3, 58, 255, 262, 122, 184, 305, 277, 365, 287, 134, 173, 70, 379, 311, 359, 315, 55, 326, 197, 125, 31, 247, 182, 104, 23, 60, 162, 141, 304, 399, 194, 333, 271, 36, 107, 2, 181, 83, 350};
+
+    FILE *arq;
+    arq = fopen("sources/random1.txt", "r");
+
+	int array[10000], i;
+
+    if (arq == NULL){
+        printf("Erro ao ler arquivo\n");
+        exit (0);
+    }
+
+    for (i = 0; i < ARR_SIZE; i++){
+        fscanf(arq, "%d ", &array[i] );
+    }
+
+    fclose(arq);
+
     int tamanhoArray = sizeof(array)/sizeof(array[0]);
 
     double s_CPU_inicial = 0, s_total_inicial = 0, s_CPU_final = 0, s_total_final = 0;
 
-    int k = 10;
+    int k = 200;
+
+    int tamanhoDoGrupo = 5;
 
     Tempo_CPU_Sistema(&s_CPU_inicial, &s_total_inicial);
 
-    int kMenor = selecao(array, 0, tamanhoArray-1, k);
+    int kMenor = selecao(array, 0, tamanhoArray-1, k, tamanhoDoGrupo);
     
     Tempo_CPU_Sistema(&s_CPU_final, &s_total_final);
 
     printf ("Tempo de CPU total = %f\n", s_CPU_final - s_CPU_inicial);
     printf("O k-menor é: %d \n", kMenor);
  
-
 	return 0;
 }
 

@@ -54,8 +54,7 @@ int select_ingenuo(int vetor[], int inicio, int n, int k){
     return vetor[k];
 }
 
-int main()
-{
+int main(){
 	int vetor[] = {159, 376, 208, 384, 213, 85, 278, 1, 364, 389, 155, 91, 234, 279, 312, 356, 260, 347, 77, 273, 231, 170, 360, 48, 41, 386, 59, 345, 209, 145, 387, 282, 223, 16, 374, 132, 163, 228, 314, 230, 337, 21, 338, 261, 112, 334, 196, 56, 325, 6, 22, 346, 371, 73, 270, 80, 108, 370, 233, 18, 3, 58, 255, 262, 122, 184, 305, 277, 365, 287, 134, 173, 70, 379, 311, 359, 315, 55, 326, 197, 125, 31, 247, 182, 104, 23, 60, 162, 141, 304, 399, 194, 333, 271, 36, 107, 2, 181, 83, 350};
     int tam = sizeof(vetor)/sizeof(vetor[0]);
 
@@ -90,26 +89,6 @@ tamanhoDoGrupo = 19
 tamanhoDoGrupo = 21
 tamanhoDoGrupo = 23
 tamanhoDoGrupo = 25
-
-
-Trocar tamanhoDoGrupo
-
-    int tamanhoDoGrupo = 5;
-    //array de medianas
-    int numeroDeMedianas = floor((tamanhoArray+tamanhoDoGrupo-1)/tamanhoDoGrupo);
-    int *medianas = (int*) malloc(numeroDeMedianas * sizeof(int));
-
-    int i;
-    for(i = 0; i < tamanhoArray/tamanhoDoGrupo; i++){
-        medianas[i] = encontrarMediana(array+baixo+i*tamanhoDoGrupo, tamanhoDoGrupo);
-    }
-    
-    if(i*tamanhoDoGrupo < tamanhoArray){
-        medianas[i] = encontrarMediana(array+baixo+i*tamanhoDoGrupo, tamanhoArray%tamanhoDoGrupo);
-        i++;
-    }
-
-
 
 */
 
